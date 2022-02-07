@@ -13,8 +13,10 @@ export class QuotebookComponent implements OnInit {
     new Quote(3,'kipchoge keino','no human is limited','motivation',new Date(2019,12,10)),
     ];
     toggleDetails(index:any){
-      this.quotes[index].showQuote = !this.quotes[index].showQuote;
+      this.quotes[index].showAuthor = !this.quotes[index].showAuthor;
+  
     }
+  
   quoteComplete(isComplete:any, index:any){
     if (isComplete) {
       this.quotes.splice(index,1);

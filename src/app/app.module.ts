@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { QuotebookComponent } from './quotebook/quotebook.component';
+import { QuotebookComponent } from './quotes/quote.component';
 import { DateCountPipe } from './date-count.pipe';
 import { QouteFormComponent } from './qoute-form/qoute-form.component';
 import { DetailsComponent } from './details/details.component';
