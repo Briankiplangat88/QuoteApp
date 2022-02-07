@@ -14,7 +14,7 @@ export class QuoteFormComponent implements OnInit {
   theQuote: any
 
   submitQuote() {
-    this.theQuote = new Quote(this.quotePublisher, this.quoteAuthor, this.quoteStr)
+    this.theQuote = new Quote(this.quoteAuthor, this.quotePublisher, this.quoteStr,this.theQuote)
     this.quoteStr = ''
     this.quoteAuthor = ''
     this.quotePublisher = ''
