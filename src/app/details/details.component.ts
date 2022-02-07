@@ -1,35 +1,36 @@
-import { Quote } from '@angular/compiler';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
+import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
+import { Quotes } from 'src/app/quotes';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
+import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 @Component({
-  selector: 'app-details',
-  templateUrl: './details.component.html',
-  styleUrls: ['./details.component.css']
+  selector: 'app-quote-details',
+  templateUrl: './quote-details.component.html',
+  styleUrls: ['./quote-details.component.css']
 })
-export class DetailsComponent implements OnInit {
-  @Input() quote:Quote | undefined;
+export class QuoteDetailsComponent implements OnInit {
 
-@Output() isComplete = new EventEmitter<boolean>();
+  faCoffee = faTrash;
+  faThumbsDown=faThumbsDown;
+  faThumbsUp = faThumbsUp;
 
-quoteComplete(complete:boolean){
-  this.isComplete.emit(complete);
-}
-// export class LikeComponent {
-  numberOfLikes: number= 0;
-  likeButtonClick(){
-   this.numberOfLikes ++;
-
-  }
-  numberOfDislikes: number= 0;
-  dislikeButtonClick(){
-   this.numberOfLikes--;
-  }
   
-
-
-
+  // dislike: number =0;
+  @Input() quote!:Quotes;
+  @Output() remove = new EventEmitter<boolean>();
+  noOflike: number =0;
+  delete(complete:boolean){
+    this.remove.emit(complete);
+  }
   constructor() { }
-
+ 
+  Like(){
+    this.noOflike++; 
+  }
+  Dislike(){
+    this.noOflike--;
+  }
   ngOnInit(): void {
   }
 
