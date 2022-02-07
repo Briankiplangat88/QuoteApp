@@ -1,0 +1,20 @@
+<div class="container">
+    <h2>quotes book</h2>
+    <div class="row">
+      <div class="col-md-5">
+        <ul>
+            <li class="list" *ngFor='let quote of quotes; let i=index' >
+              {{quote.genre}}
+          <div>
+              <button class="btn" (click)='toggleDetails(i)'>VIEW QUOTE</button>
+            </div>
+              <app-quote-details *ngIf='quote.showQuote' [quote]="quote" (isComplete)="quoteComplete($event,i)" ></app-quote-details>
+            </li>
+          </ul>
+
+      </div>
+      <div class="col-md-4">
+        <app-quote-form (addQuote)="addNewQuote($event)"></app-quote-form>
+      </div>
+</div>
+</div>
