@@ -6,7 +6,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
-  @Input() quote: Quotes
+  @Input() quote:Quote | undefined;
+
+@Output() isComplete = new EventEmitter<boolean>();
+
+quoteComplete(complete:boolean){
+  this.isComplete.emit(complete);
+}
+// export class LikeComponent {
+  numberOfLikes: number= 0;
+  likeButtonClick(){
+   this.numberOfLikes ++;
+
+  }
+  numberOfDislikes: number= 0;
+  dislikeButtonClick(){
+   this.numberOfLikes--;
+  }
+  
+
 
 
   constructor() { }
